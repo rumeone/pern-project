@@ -1,4 +1,4 @@
-class brandController {
+class BrandController {
     async create(req, res) {
 
     }
@@ -7,4 +7,4 @@ class brandController {
     }
 }
 
-module.exports = new brandController();
+module.exports = new BrandController();

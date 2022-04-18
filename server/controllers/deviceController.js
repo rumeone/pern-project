@@ -1,13 +1,14 @@
-class deviceController {
-    async registartion(req, res) {
+class DeviceController {
+    async create(req, res) {
 
     }
-    async login(req, res) {
+    async getAll(req, res) {
 
     }
-    async check(req, res) {
+
+    async getOne(req, res) {
 
     }
 }
 
-module.exports = new deviceController();
+module.exports = new DeviceController();

@@ -1,4 +1,4 @@
-class typeController {
+class TypeController {
     async create(req, res) {
 
     }
@@ -7,4 +7,4 @@ class typeController {
     }
 }
 
-module.exports = new typeController();
+module.exports = new TypeController();
