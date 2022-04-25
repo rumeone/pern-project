@@ -27,7 +27,10 @@ class UserController {
     };
     async login(req, res, next) {
         const {email, password} = req.body;
+        /*const userRole = await User.findOne({where: {id}});
+        console.log(userRole);*/
         const user = await User.findOne({where: {email}});
+        console.log(user.role);
         if (!user) {
             return next(ApiError.internal('Пользователь не найден!'));
         }
@@ -35,7 +38,7 @@ class UserController {
         if (!comparePassword) {
             return next(ApiError.internal('Неверный логин или пароль'));
         }
-        const token = generateJwt(user.id, user.email, user.password);
+        const token = generateJwt(user.id, user.email, user.role);
         return res.json({token});
     }
     async check(req, res, next) {
