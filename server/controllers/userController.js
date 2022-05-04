@@ -21,14 +21,12 @@ class UserController {
         const hashPassword = await bcrypt.hash(password, 5);
         const user = await User.create({email, role, password: hashPassword});
         const basket = await Basket.create({userId: user.id});
-        const token = generateJwt(user.id, user.email, user.role); // проверить здесь будет ли работать просто с id,email и т д
+        const token = generateJwt(user.id, user.email, user.role);
 
         return res.json({token});
     };
     async login(req, res, next) {
         const {email, password} = req.body;
-        /*const userRole = await User.findOne({where: {id}});
-        console.log(userRole);*/
         const user = await User.findOne({where: {email}});
         console.log(user.role);
         if (!user) {
