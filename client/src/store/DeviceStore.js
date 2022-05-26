@@ -5,19 +5,36 @@ export default class DeviceStore {
         this._types = [
             {id: 1, name: 'Холодильник'},
             {id: 2, name: 'Смартфоны'},
+            {id: 3, name: 'Ноутбуки'},
+            {id: 4, name: 'Телевизоры'}
         ];
         this._brands = [
             {id: 1, name: 'Sumsung'},
             {id: 2, name: 'Apple'},
+            {id: 3, name: 'Lenovo'},
+            {id: 4, name: 'Asus'},
+
         ]
         this._devices = [
             {id: 1, name: 'Iphone 12 pro', price: 25000, rating: 5, img: 'https://proinside.net/wa-data/public/shop/img/iphone-12-pro-blue-10.jpg'},
             {id: 2, name: 'Iphone 12 pro', price: 25000, rating: 5, img: 'https://proinside.net/wa-data/public/shop/img/iphone-12-pro-blue-10.jpg'},
             {id: 3, name: 'Iphone 12 pro', price: 25000, rating: 5, img: 'https://proinside.net/wa-data/public/shop/img/iphone-12-pro-blue-10.jpg'},
             {id: 4, name: 'Iphone 12 pro', price: 25000, rating: 5, img: 'https://proinside.net/wa-data/public/shop/img/iphone-12-pro-blue-10.jpg'},
+            {id: 5, name: 'Iphone 12 pro', price: 25000, rating: 5, img: 'https://proinside.net/wa-data/public/shop/img/iphone-12-pro-blue-10.jpg'},
+            {id: 6, name: 'Iphone 12 pro', price: 25000, rating: 5, img: 'https://proinside.net/wa-data/public/shop/img/iphone-12-pro-blue-10.jpg'},
         ]
+        this._selectedType = {};
+        this._selectedBrand = {};
         makeAutoObservable(this);
     };
+
+    setSelectedType(type) {
+        this._selectedType = type;
+    }
+
+    setSelectedBrand(brand) {
+        this._selectedBrand = brand;
+    }
 
     setTypes(types) {
         this._types = types;
@@ -43,4 +60,11 @@ export default class DeviceStore {
         return this._devices;
     };
 
+    get selectedType() {
+        return this._selectedType;
+    };
+
+    get selectedBrand() {
+        return this._selectedBrand;
+    };
 };
